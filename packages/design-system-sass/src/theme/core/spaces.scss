@@ -1,0 +1,67 @@
+@import '../abstracts/variables';
+
+/////////////////////////////////////////////
+// Generate all the paddings
+/////////////////////////////////////////////
+$paddings: (
+  p: 'padding',
+  pt: 'padding-top',
+  pb: 'padding-bottom',
+  pr: 'padding-right',
+  pl: 'padding-left',
+  paddingInline: 'padding-inline',
+  paddingStart: 'padding-inline-start',
+  paddingEnd: 'padding-inline-end',
+  paddingBlock: 'padding-block',
+  paddingBlockStart: 'padding-block-start',
+  paddingBlockEnd: 'padding-block-end',
+);
+
+@each $sizeName, $sizeValue in $mainSizes {
+  @each $name, $value in $paddings {
+    .#{$name}--#{$sizeName} {
+      #{$value}: $sizeValue;
+    }
+  }
+  .px--#{$sizeName} {
+    padding-left: $sizeValue;
+    padding-right: $sizeValue;
+  }
+  .py--#{$sizeName} {
+    padding-left: $sizeValue;
+    padding-right: $sizeValue;
+  }
+}
+
+/////////////////////////////////////////////
+// Generate all the margins
+/////////////////////////////////////////////
+$margins: (
+  m: 'margin',
+  mt: 'margin-top',
+  mb: 'margin-bottom',
+  mr: 'margin-right',
+  ml: 'margin-left',
+  marginInline: 'margin-inline',
+  marginStart: 'margin-inline-start',
+  marginEnd: 'margin-inline-end',
+  marginBlock: 'margin-block',
+  marginBlockStart: 'margin-block-start',
+  marginBlockEnd: 'margin-block-end',
+);
+
+@each $sizeName, $sizeValue in $mainSizes {
+  @each $name, $value in $margins {
+    .#{$name}--#{$sizeName} {
+      #{$value}: $sizeValue;
+    }
+  }
+  .mx--#{$sizeName} {
+    margin-left: $sizeValue;
+    margin-right: $sizeValue;
+  }
+  .my--#{$sizeName} {
+    margin-left: $sizeValue;
+    margin-right: $sizeValue;
+  }
+}

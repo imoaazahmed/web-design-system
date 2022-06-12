@@ -1,0 +1,17 @@
+////////////////////////////////////
+// SCREEN SIZES
+////////////////////////////////////
+$breakpoint-iPad: 50em;
+$breakpoint-mobile: 36em;
+
+@mixin iPad {
+  @media (min-width: #{$breakpoint-iPad}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}

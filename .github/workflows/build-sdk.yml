@@ -1,0 +1,108 @@
+name: build-sdk
+on:
+  push:
+    paths:
+      - 'packages/design-system/src/**'
+      - 'packages/cms/**'
+      - '.github/**'
+    branches:
+      - '*'
+      - '*/*'
+
+env:
+  CI: true
+  SDK_REPO: ${{ github.repository }}-sdk
+  GH_PAT: ${{ secrets.GH_PAT }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  SDK_REPO_PATH: /tmp/${{ github.repository }}-sdk
+  DS_PATH: packages/design-system/dist
+  CMS_PATH: packages/cms/dist
+  SDK_REPO_URL:
+    https://${{ secrets.GH_PAT }}:x-oauth-basic@github.com/${{ github.repository
+    }}-sdk.git
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 30
+          persist-credentials: false
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: General
+        run: |
+          # comment
+          GIT_BRANCH=${{ github.ref }}
+          echo "GIT_BRANCH=$(echo "${GIT_BRANCH/refs\/heads\//}")" >> $GITHUB_ENV
+          echo "COMMIT_DATE=$(git log -n 1 --pretty='format:%cd' --date=format:'%y-%m-%d')" >> $GITHUB_ENV
+          echo "GH_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-7)" >> $GITHUB_ENV
+          echo "LAST_CM_MESSAGE=$(git log --no-merges -1 HEAD --pretty=format:%s)" >> $GITHUB_ENV
+          git config --global user.name "tradeling-bot"
+          git config --global url."https://${{ env.GH_PAT }}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
+          git config --global url."https://${{ env.GH_PAT }}:x-oauth-basic@github.com/".insteadOf "ssh://git@github.com/"
+
+      - name: Install Dependencies if no cache
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          # comment
+          yarn || ( yarn cache clean --force && yarn)
+
+      - name: Clone the remote sdk repo and create branch
+        run: |
+          # comment
+          mkdir -p $SDK_REPO_PATH
+          (git clone --depth 10 --branch ${{ env.GIT_BRANCH }} $SDK_REPO_URL $SDK_REPO_PATH) || (git clone --depth 10 --branch master $SDK_REPO_URL $SDK_REPO_PATH && git -C $SDK_REPO_PATH checkout -b ${{ env.GIT_BRANCH }})
+
+      - name: Build sdk
+        run: |
+          # comment
+          yarn && yarn build
+          rm -rf $SDK_REPO_PATH/*
+          mkdir -p  $SDK_REPO_PATH/dist/{esm,cjs,types,cms}
+          mkdir -p $SDK_REPO_PATH/cms
+          mv $CMS_PATH/* $SDK_REPO_PATH/cms
+          mv $DS_PATH/esm/* $SDK_REPO_PATH/dist/esm
+          mv $DS_PATH/cjs/* $SDK_REPO_PATH/dist/cjs
+          mv $DS_PATH/types/* $SDK_REPO_PATH/dist/types
+          mv $DS_PATH/package.json $SDK_REPO_PATH
+          mv $DS_PATH/README.md $SDK_REPO_PATH
+          mv $DS_PATH/CHANGELOG.md $SDK_REPO_PATH
+
+      - name: Push changes to branch
+        run: |
+          # comment
+          cd $SDK_REPO_PATH
+          git add -A
+          (git commit -am $'chore: updates ${{ github.ref }} \n${{ env.GH_SHA_SHORT }}' && git tag ${GIT_BRANCH}-${COMMIT_DATE}-${GH_SHA_SHORT} ) || true
+
+      - name: Push changes to branch final
+        run: |
+          # comment
+          cd $SDK_REPO_PATH
+          git push -u --set-upstream origin ${{ env.GIT_BRANCH }} --tags
+          git status
+
+      - uses: 8398a7/action-slack@v2
+        with:
+          status: ${{ job.status }}
+          author_name: ${{ github.repository }} Build SDK
+          # mention: "UP32QM0F2"
+          only_mention_fail: 'UP32QM0F2'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()

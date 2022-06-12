@@ -1,0 +1,78 @@
+name: pr-ci
+on:
+  pull_request:
+
+env:
+  GH_PAT: ${{ secrets.GH_PAT }}
+  DOCKER_PAT: ${{ secrets.DOCKER_PAT }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  CI: true
+  JENKINS_DEV_JOB_URL: ${{ secrets.JENKINS_DEV_JOB_URL }}
+  JENKINS_STAGE_JOB_URL: ${{ secrets.JENKINS_STAGE_JOB_URL }}
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 30
+          persist-credentials: false
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: General
+        run: |
+          # comment
+          GIT_BRANCH=${{ github.ref }}
+          echo "REPOSITORY_NAME=$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}')" >> $GITHUB_ENV
+          echo "GIT_BRANCH=$(echo "${GIT_BRANCH/refs\/heads\//}")" >> $GITHUB_ENV
+          echo "COMMIT_DATE=$(git log -n 1 --pretty='format:%cd' --date=format:'%y-%m-%d')" >> $GITHUB_ENV
+          echo "GH_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-7)" >> $GITHUB_ENV
+          git config --global url."https://${{ env.GH_PAT }}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
+          git config --global url."https://${{ env.GH_PAT }}:x-oauth-basic@github.com/".insteadOf "ssh://git@github.com/"
+      - name: Login to DockerHub Package Repository
+        run: |
+          docker login --username bottradeling -p ${DOCKER_PAT}
+      - name: Install Dependencies if no cache
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          yarn || ( yarn cache clean --force && yarn )
+      # https://github.com/actions/cache/issues/16
+      - name: Test
+        run: |
+          # Istall dev deps if jest not found
+          [ -f "node_modules/.bin/jest" ] || yarn
+          yarn test
+        timeout-minutes: 8
+
+      - name: Lint
+        run: yarn lint
+        timeout-minutes: 3
+
+      - name: Build
+        run: |
+          yarn build
+          yarn build-storybook
+
+      - name: Build the Docker image
+        run: |
+          docker build . --file mini.Dockerfile -t app:latest \
+          --build-arg GH_PAT=${GH_PAT} \
+          --build-arg BUILD_NR=$GIT_BRANCH-$GH_SHA_SHORT \
+          --build-arg BUILD_BRANCH=$GIT_BRANCH \
+          --build-arg BUILD_COMMIT=$GH_SHA_SHORT \
+          --build-arg BUILD_DATE=`date +%Y-%m-%d:%H:%M:%S`
+        timeout-minutes: 15

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "strict": false,
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "target": "es6",
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "esModuleInterop": true,
+    // "isolatedModules": false,
+    "declaration": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/**/node_modules"]
+}

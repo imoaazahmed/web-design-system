@@ -1,0 +1,145 @@
+---
+title: Badge
+description: Badge Component
+layout: doc-page
+---
+
+# Badge
+
+Badges are used to highlight an item for quick recognition.
+[View Component](https://design-system.tradelingdev.com/?path=/story/badge--badge)
+
+## Import
+
+```
+import { Badge } from '@tradeling/web-design-system';
+```
+
+> Make sure that [design system](https://github.com/tradeling/web-design-system)
+> is installed in your application.
+
+## Usage
+
+### Basic usage
+
+```
+<Badge>Default</Badge>
+```
+
+### Badge Variants
+
+Pass the variant prop to customize the color and background of the Badge.
+variant can be `primary`,`invert` or `important`.
+[check the storybook](https://design-system.tradelingdev.com/?path=/story/badge--badge)
+
+```
+<Stack isInline spacing="sm">
+  <Badge variant="primary">Primary</Badge>
+  <Badge variant="invert">Invert</Badge>
+  <Badge variant="important">Important</Badge>
+</Stack>
+```
+
+## Composition
+
+```
+<Flex mt="lg">
+  <Avatar size="lg" marginEnd="md" />
+  <Box>
+    <Heading size="sm">
+      Ahmed Elsayed
+      <Badge variant="primary" marginStart="md">
+        New
+      </Badge>
+    </Heading>
+    <Text size="sm">Frontend Engineer</Text>
+  </Box>
+</Flex>
+```
+
+You can change the size of the badge by passing `fontSize` prop.
+
+```
+<Heading size="sm">
+  Ahmed Elsayed
+  <Badge fontSize="xl" variant="primary" marginStart="md">
+    New
+  </Badge>
+</Heading>
+```
+
+## Props
+
+The Badge component composes [Box component](https://chakra-ui.com/box) so you
+can pass props for `Box`.
+
+| Name      | Type                                        | Default   | Description            | Required |
+| --------- | ------------------------------------------- | --------- | ---------------------- | -------- |
+| `variant` | `default`, `invert`, `primary`, `important` | `default` | The style of the badge | -        |
+
+# Status badge
+
+Status Badge are used to highlight status of an item (error, success, ...etc ).
+[View Component](https://design-system.tradelingdev.com/?path=/story/badge--status-badge)
+
+## Import
+
+```
+import { StatusBadge } from '@tradeling/web-design-system';
+```
+
+> Make sure that [design system](https://github.com/tradeling/web-design-system)
+> is installed in your application.
+
+## Usage
+
+### Basic usage
+
+```
+<StatusBadge>Default</StatusBadge>
+```
+
+### Badge Variants
+
+Pass the variant prop to customize the status. variant can be `error`,`info`,
+`success` or `warning`.
+[check the storybook](https://design-system.tradelingdev.com/?path=/story/badge--status-badge)
+
+```
+<Stack spacing="sm" isInline>
+  <StatusBadge variant="error">Error</StatusBadge>
+  <StatusBadge variant="info">Info</StatusBadge>
+  <StatusBadge variant="success">Success</StatusBadge>
+  <StatusBadge variant="warning">Warning</StatusBadge>
+</Stack>
+```
+
+## Composition
+
+```
+<Text>
+  The selected item is
+  <StatusBadge variant="success">successfully</StatusBadge> added to your cart.
+</Text>
+```
+
+You can change the size of the badge by passing fontSize prop.
+
+```
+<Text>
+  The selected item is
+  <StatusBadge fontSize="lg" variant="success">
+    successfully
+  </StatusBadge>
+  added to your cart.
+</Text>
+```
+
+## Props
+
+The StatusBadge component composes [Box component](https://chakra-ui.com/box) so
+you can pass props for `Box`.
+
+| Name      | Type                                             | Default   | Description            | Required |
+| --------- | ------------------------------------------------ | --------- | ---------------------- | -------- |
+| `variant` | `default`, `error`, `info`, `success`, `warning` | `default` | The style of the badge | -        |

@@ -1,0 +1,58 @@
+---
+title: Category Listing Page
+description: Category Listing Page Component
+layout: doc-page
+---
+
+# Category Listing Page
+
+## Installation
+
+Design System can be added as a dependency from
+[here](https://github.com/tradeling/web-design-system-sdk/releases).
+
+## Import
+
+```
+import { ReadyToShipProduct, SupplierCard } from '@tradeling/web-design-system';
+```
+
+## ReadyToShipProduct Usage
+
+```
+<ReadyToShipProduct>
+    <ReadyToShipProduct.Image src="https://cdn.britannica.com/68/143268-050-917048EA/Beef-loin.jpg" alt="Shredded Chicken with Salad" />
+    <ReadyToShipProduct.Content>
+        <ReadyToShipProduct.Name>Shredded Chicken with Salad</ReadyToShipProduct.Name>
+        <ReadyToShipProduct.Price
+            minPrice={26.0}
+            maxPrice={96.0}
+            currency="AED"
+        />
+        <ReadyToShipProduct.Units value={19} />
+        <ReadyToShipProduct.Supplier>
+            Hangzhou Aiyomi Food Co., Ltd.
+        </ReadyToShipProduct.Supplier>
+        <ReadyToShipProduct.ExtraInfo />
+        <Button isFullWidth variant="outline">
+            Contact Supplier
+        </Button>
+    </ReadyToShipProduct.Content>
+</ReadyToShipProduct>
+```
+
+## SupplierCard Usage
+
+```
+<SupplierCard>
+    <SupplierCard.Image src="https://pinchofyum.com/wp-content/uploads/Chicken-Meal-Prep-with-Spices-and-Sauce.jpg" alt="Fujian Stockpapa Import & Export Co., Ltd." />
+    <SupplierCard.Content>
+      <SupplierCard.Logo src="https://upload.wikimedia.org/wikipedia/en/3/32/Official_Bounty_Fresh_Logo.jpg" />
+      <SupplierCard.Name>Fujian Stockpapa Import & Export Co., Ltd.</SupplierCard.Name>
+      <SupplierCard.Highlights country="US" years="2 Yrs." price="$510,000+" />
+      <Button size="lg" variant="primary" isFullWidth>
+        Contact supplier
+      </Button>
+    </SupplierCard.Content>
+</SupplierCard>
+```

@@ -1,0 +1,33 @@
+---
+title: Messaging center
+description: Messaging center Component
+layout: doc-page
+---
+
+# Messaging Center components
+
+These are the components used in messaging center within Buyer and Seller
+Central.
+
+## Messaging Text
+
+This component renders a simple messaging text card with a timestamp.
+
+[View component](https://design-system.tradelingdev.com/?path=/story/messaging-center--messaging-card)
+
+```
+<Stack align="flex-start" spacing="40px" bg="gray.50" padding="lg">
+    <MessagingText date="17:00PM">
+    This-is-a-long-line-of-text-without-any-spaces-This-is-a-long-line-of-text-without-any-spaces-This-is-a-long-line-of-text-without-any-spaces-This-is-a-long-line-of-text-without-any-spaces
+    </MessagingText>
+
+    <MessagingText
+    arrowPlacement="end"
+    bg="blue.50"
+    marginStart="auto"
+    date="17:00PM"
+    >
+    Anyone know how to measure
+    </MessagingText>
+</Stack>
+```

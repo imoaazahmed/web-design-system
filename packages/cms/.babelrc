@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "inline-react-svg"
+  ],
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "targets": "> 0.25%"
+        },
+        "styled-jsx": {}
+      }
+    ],
+    "@emotion/babel-preset-css-prop"
+  ]
+}

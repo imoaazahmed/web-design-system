@@ -1,0 +1,38 @@
+.input {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: -0.2;
+  padding-left: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border: 1px solid;
+  border-color: #bfbfbf;
+  height: 40px;
+  border-radius: 4px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.6;
+}
+
+.input:hover {
+  border-color: #8c8c8c;
+}
+
+.input:focus {
+  border-color: #8c8c8c;
+  box-shadow: 0 0 1px 2px #9ab6e8;
+}
+
+.input::placeholder {
+  color: #bfbfbf;
+}
+
+.input[disabled] {
+  background: #fafafa;
+  border-color: #fafafa;
+  color: #a6a6a6;
+}
+
+.input[aria-invalid] {
+  border-color: #d83432;
+}

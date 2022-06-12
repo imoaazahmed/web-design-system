@@ -1,0 +1,59 @@
+---
+title: Progress Steps
+description: Progress Steps Component
+layout: doc-page
+---
+
+# Progress Steps
+
+Progress is used to display the progress status for a task that have several
+steps.
+result.[View component](https://design-system.tradelingdev.com/?path=/story/progress-steps--step)
+
+## Import
+
+```
+import { Steps } from '@tradeling/web-design-system';
+```
+
+> Make sure that [design system](https://github.com/tradeling/web-design-system)
+> is installed in your application.
+
+## Usage
+
+### Basic usage
+
+to make the Steps all together you can use :
+
+```
+<Steps current={number('current', 1)}>
+    <Steps.Step>Business type</Steps.Step>
+    <Steps.Step>Business information</Steps.Step>
+    <Steps.Step>Identity verification</Steps.Step>
+    <Steps.Step>Business documents</Steps.Step>
+</Steps>
+```
+
+[View component](https://design-system.tradelingdev.com/?path=/story/progress-steps--step)
+
+### Single step
+
+You can pass the step number from `index={1}` and select the status as there are
+3 status which is
+
+```
+export const step = () => (
+  <Steps.Step
+    index={1}
+    status={select('status', ['unvisited', 'complete', 'active'], 'unvisited')}
+  >
+    Business type
+  </Steps.Step>
+);
+```
+
+### Props
+
+| Name  | Type   | Description                                                                                                                                           | Required? |
+| ----- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| value | number | the status indpence of the number you gave for EXAMPLE: if you gave the index 2 it will move to next step and make the status for step 1 is completed | - ---     |

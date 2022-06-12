@@ -1,0 +1,23 @@
+$xxxxl: 8rem;
+$xxxl: 6rem;
+$xxl: 5rem;
+$xl: 3rem;
+$lg-alt: 2rem;
+$lg: 1.5rem;
+$md: 1rem;
+$sm: 0.75rem;
+$xs: 0.5rem;
+$xxs: 0.25rem;
+
+$mainSizes: (
+  4xl: $xxxxl,
+  3xl: $xxxl,
+  2xl: $xxl,
+  xl: $xl,
+  lg-alt: $lg-alt,
+  lg: $lg,
+  md: $md,
+  sm: $sm,
+  xs: $xs,
+  xxs: $xxs,
+);

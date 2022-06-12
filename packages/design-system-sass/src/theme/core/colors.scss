@@ -1,0 +1,16 @@
+@use "sass:map";
+@import '../abstracts/variables';
+/////////////////////////////////////////////
+// Create color and background classes for
+// all color shades
+/////////////////////////////////////////////
+@each $name, $value in $mainColors {
+  @each $shadeVal in $colorShades {
+    .color--#{$name}--#{$shadeVal} {
+      color: map.get($value, $shadeVal);
+    }
+    .bg--#{$name}--#{$shadeVal} {
+      background-color: map.get($value, $shadeVal);
+    }
+  }
+}

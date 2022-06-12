@@ -1,0 +1,7 @@
+*.log
+.DS_Store
+node_modules
+.cache
+storybook-static
+dist
+.idea

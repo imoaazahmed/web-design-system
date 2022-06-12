@@ -1,0 +1,102 @@
+---
+title: Logo
+description: Logo Component
+layout: doc-page
+---
+
+# Logo
+
+Display Tradeling Logo as `SVG`.
+[View component](https://design-system.tradelingdev.com/?path=/story/logo--colored-logo)
+
+## Import
+
+```
+import { Logo, BuyerLogo, SellerLogo } from '@tradeling/web-design-system';
+```
+
+> Make sure that [design system](https://github.com/tradeling/web-design-system)
+> is installed in your application.
+
+## Usage
+
+### Basic usage
+
+Display the colored version of Tradeling logo.
+[check the storybook](https://design-system.tradelingdev.com/?path=/story/logo--colored-logo)
+
+```
+<Center>
+    <Logo width="300px" />
+</Center>
+```
+
+### Buyer/Seller center Logo
+
+```
+<Stack align="center" spacing="lg">
+    <Box><BuyerLogo /></Box>
+    <Box><SellerLogo /></Box>
+</Stack>
+```
+
+### Logo Variants
+
+Pass the variant prop to customize the color of the Logo, variant can be
+`colored` or `white`.
+[Check component](https://design-system.tradelingdev.com/?path=/story/logo--white-logo)
+
+```
+<Center bg="blue.500">
+    <Logo width="300px" variant="white" />
+</Center>
+```
+
+### Buyer/Seller Center Logo Variants
+
+```
+<Center bg="blue.500" py="lg">
+    <Stack align="center" spacing="md">
+        <Box><BuyerLogo variant="white" /></Box>
+        <Box><SellerLogo variant="white" /></Box>
+    </Stack>
+</Center>
+```
+
+## Props
+
+The Logo component composes [Box component](https://chakra-ui.com/box) so you
+can pass props for `Box`.
+
+| Name      | Type               | Default   | Description           | Required |
+| --------- | ------------------ | --------- | --------------------- | :------: |
+| `variant` | `colored`, `white` | `colored` | The color of the logo |    -     |
+
+# Logo Icon
+
+Display Tradeling Logo icon (without tradeling word) as `SVG`.
+[View component](https://design-system.tradelingdev.com/?path=/story/logo--logo-icon)
+
+## Import
+
+```
+import { LogoIcon } from '@tradeling/web-design-system';
+```
+
+> Make sure that [design system](https://github.com/tradeling/web-design-system)
+> is installed in your application.
+
+## Usage
+
+### Basic usage
+
+```
+<Center bg="blue.600" py="lg">
+    <LogoIcon width="100px" />
+</Center>
+```
+
+## Props
+
+The LogoIcon component composes [Box component](https://chakra-ui.com/box) so
+you can pass props for `Box`.

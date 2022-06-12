@@ -1,0 +1,214 @@
+---
+title: Button
+description: Button Component
+layout: doc-page
+---
+
+# Alert
+
+Alert component can be used to show different alerts in a modal.
+[View Component](https://design-system.tradelingdev.com/?path=/story/alert--basic).
+
+## Installation
+
+Design System can be added as a dependency from
+[here](https://github.com/tradeling/web-design-system-sdk/releases).
+
+## Import
+
+```
+import { Alert } from '@tradeling/web-design-system';
+```
+
+## Usage
+
+### Basic alert
+
+```
+<Alert>This is a dummy alert box.</Alert>
+```
+
+### Alert with close button
+
+```
+<Alert
+  isClosable
+  onClose={() => {
+    // Code to close alert box
+  }}
+>
+  This is a dummy alert box with close button.
+</Alert>
+```
+
+### Alert with title
+
+```
+<Alert title="Alert title">This is a dummy alert box with title.</Alert>
+```
+
+### Info alert
+
+```
+<Alert variant="info">This is a dummy alert box.</Alert>
+```
+
+### Error alert
+
+```
+<Alert variant="error">This is a dummy alert box.</Alert>
+```
+
+### Success alert
+
+```
+<Alert variant="success">This is a dummy alert box.</Alert>
+```
+
+### Warning alert
+
+```
+<Alert variant="warning">This is a dummy alert box.</Alert>
+```
+
+### Base Alert
+
+```
+<BaseAlert variant="solid" type="info">
+  <BaseAlert.Title>This is the alert title</BaseAlert.Title>
+  <BaseAlert.Description>
+    You’re account has been activated, a team member will get in touch to
+    help you go live with your products on Tradeling. Feel free to reach out
+    in case of any queries at xxxx@tradeling.com
+  </BaseAlert.Description>
+</BaseAlert>
+```
+
+### Composition
+
+```
+<BaseAlert variant="solid" type="info">
+  <Flex alignItems="center" justify="space-between">
+    <Box>
+      <BaseAlert.Title>This is the alert title</BaseAlert.Title>
+      <BaseAlert.Description>
+        You’re account has been activated, a team member will get in touch
+        to help you go live with your products on Tradeling. Feel free to
+        reach out in case of any queries at xxxx@tradeling.com
+      </BaseAlert.Description>
+    </Box>
+    <Box>
+      <Button>Complete details</Button>
+    </Box>
+  </Flex>
+</BaseAlert>
+```
+
+## Props
+
+### Alert
+
+It accepts all the props accepted by [`<Box />`](https://chakra-ui.com/box)
+component. Additionally, following props can be passed to it:
+
+| Name       |             Type              | Default |                  Description                   |         Required          |
+| ---------- | :---------------------------: | :-----: | :--------------------------------------------: | :-----------------------: |
+| title      |            string             |    -    |                  Alert title                   |             -             |
+| variant    | error, info, success, warning |  info   |                   Alert type                   |             -             |
+| isClosable |            boolean            |  false  |      Shows the close button in alert box       |             -             |
+| onClose    |           function            |    -    | Function to be called on click of close button | If `isClosable` is `true` |
+
+# Base Alert
+
+## Import
+
+```
+  import { BaseAlert } from './base-alert';
+```
+
+## Usage
+
+### Basic usage
+
+```
+<BaseAlert>
+  <BaseAlert.Title>This is the alert title</BaseAlert.Title>
+  <BaseAlert.Description>
+    You’re account has been activated, a team member will get in touch to
+    help you go live with your products on Tradeling. Feel free to reach out
+    in case of any queries at xxxx@tradeling.com
+  </BaseAlert.Description>
+</BaseAlert>
+```
+
+### Changing the appearance of the BaseAlert
+
+BaseAlert comes in 2 variants `solid` and `outline`. Pass the `variant` prop and
+set it to either of these values.
+
+```
+<Stack>
+  <BaseAlert variant="solid">
+    <BaseAlert.Title>This is the alert title</BaseAlert.Title>
+    <BaseAlert.Description>
+      You’re account has been activated, a team member will get in touch to
+      help you go live with your products on Tradeling. Feel free to reach out
+      in case of any queries at xxxx@tradeling.com
+    </BaseAlert.Description>
+  </BaseAlert>
+  <BaseAlert variant="outline">
+    <BaseAlert.Title>This is the alert title</BaseAlert.Title>
+    <BaseAlert.Description>
+      You’re account has been activated, a team member will get in touch to
+      help you go live with your products on Tradeling. Feel free to reach out
+      in case of any queries at xxxx@tradeling.com
+    </BaseAlert.Description>
+  </BaseAlert>
+</Stack>
+```
+
+### Type
+
+Change the type of the BaseAlert by passing the type prop. this affects the
+color scheme and icon used. BaseAlert supports `info`, `error`, `success` and
+`warning`.
+
+```
+<Stack spacing="lg">
+  <BaseAlert variant="outline" type="info">
+    <BaseAlert.Title>This is the alert title</BaseAlert.Title>
+    <BaseAlert.Description>
+      You’re account has been activated, a team member will get in touch to
+      help you go live with your products on Tradeling. Feel free to reach out
+      in case of any queries at xxxx@tradeling.com
+    </BaseAlert.Description>
+  </BaseAlert>
+
+  <BaseAlert variant="outline" type="error">
+    <BaseAlert.Title>This is the alert title</BaseAlert.Title>
+    <BaseAlert.Description>
+      You’re account has been activated, a team member will get in touch to
+      help you go live with your products on Tradeling. Feel free to reach out
+      in case of any queries at xxxx@tradeling.com
+    </BaseAlert.Description>
+  </BaseAlert>
+
+  <BaseAlert variant="outline" type="success">
+    <BaseAlert.Title>This is the alert title</BaseAlert.Title>
+    <BaseAlert.Description>
+      You’re account has been activated, a team member will get in touch to
+      help you go live with your products on Tradeling. Feel free to reach out
+      in case of any queries at xxxx@tradeling.com
+    </BaseAlert.Description>
+  </BaseAlert>
+
+  <BaseAlert variant="outline" type="warning">
+    <BaseAlert.Title>This is the alert title</BaseAlert.Title>
+    <BaseAlert.Description>
+      You’re account has been activated, a team member will get in touch to
+      help you go live with your products on Tradeling. Feel free to reach out
+      in case of any queries at xxxx@tradeling.com
+    </BaseAlert.Description>
+  </BaseAlert>
+</Stack>
+```

@@ -1,0 +1,162 @@
+[
+  {
+    "text": "Getting Started",
+    "route": "getting-started"
+  },
+  {
+    "text": "Components",
+    "route": ""
+  },
+  {
+    "text": "Alert",
+    "route": "alert"
+  },
+  {
+    "text": "Avatar",
+    "route": "avatar"
+  },
+  {
+    "text": "Badge",
+    "route": "badge"
+  },
+  {
+    "text": "Breadcrumbs",
+    "route": "breadcrumbs"
+  },
+  {
+    "text": "Button",
+    "route": "button"
+  },
+  {
+    "text": "Buyer Seller Registration",
+    "route": "buyer-seller-registration"
+  },
+  {
+    "text": "Card",
+    "route": "card"
+  },
+  {
+    "text": "Carousel",
+    "route": "carousel"
+  },
+  {
+    "text": "Category Listing Page",
+    "route": "category-listing-page"
+  },
+  {
+    "text": "Checkbox",
+    "route": "checkbox"
+  },
+  {
+    "text": "Corner Badge",
+    "route": "corner-badge"
+  },
+  {
+    "text": "Country Flag",
+    "route": "country-flag"
+  },
+  {
+    "text": "Form Elements",
+    "route": "form-elements"
+  },
+  {
+    "text": "Description",
+    "route": "description"
+  },
+  {
+    "text": "Feature Media",
+    "route": "feature-media"
+  },
+  {
+    "text": "File Upload",
+    "route": "file-upload"
+  },
+  {
+    "text": "Filter",
+    "route": "filter"
+  },
+  {
+    "text": "Framed Icon",
+    "route": "framed-icon"
+  },
+  {
+    "text": "Input",
+    "route": "input"
+  },
+  {
+    "text": "Logo",
+    "route": "logo"
+  },
+  {
+    "text": "Messaging center",
+    "route": "messaging-center"
+  },
+  {
+    "text": "Modal",
+    "route": "modal"
+  },
+  {
+    "text": "Pagination",
+    "route": "pagination"
+  },
+  {
+    "text": "Payment Methods",
+    "route": "payment-methods"
+  },
+  {
+    "text": "Pin Input",
+    "route": "pin-input"
+  },
+  {
+    "text": "Popover",
+    "route": "popover"
+  },
+  {
+    "text": "Radio Card",
+    "route": "radio-card"
+  },
+  {
+    "text": "Read More",
+    "route": "read-more"
+  },
+  {
+    "text": "Select",
+    "route": "select"
+  },
+  {
+    "text": "Spinner",
+    "route": "spinner"
+  },
+  {
+    "text": "Progress Steps",
+    "route": "progress-steps"
+  },
+  {
+    "text": "Table",
+    "route": "table"
+  },
+  {
+    "text": "Tabs",
+    "route": "tabs"
+  },
+  {
+    "text": "Tags Input",
+    "route": "tags-input"
+  },
+  {
+    "text": "Textarea",
+    "route": "textarea"
+  },
+  {
+    "text": "Typography",
+    "route": "typography"
+  },
+  {
+    "text": "Icon",
+    "route": "icon"
+  },
+  {
+    "text": "Foundation",
+    "route": "foundation"
+  }
+]

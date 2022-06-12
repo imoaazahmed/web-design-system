@@ -1,0 +1,68 @@
+---
+title: Typography
+description: Typography Component
+layout: doc-page
+---
+
+# Typography
+
+typography is the used to render text and paragraphs within an interface.
+result.[View component](https://design-system.tradelingdev.com/?path=/story/typography--headings)
+
+## Import
+
+```
+import { Heading, Text } from '@tradeling/web-design-system/Typography';
+```
+
+> Make sure that [design system](https://github.com/tradeling/web-design-system)
+> is installed in your application.
+
+## Usage
+
+```
+<Stack spacing="md">
+    <Heading>Display Medium — 30 Inter - B</Heading>
+    <Text>Paragraph — 14 Inter B</Text>
+</Stack>
+```
+
+### Heading
+
+- use size prop to change the font size of Heading.
+- Size can be `sm` , `md` , `lg`.
+- The default is `md`
+
+```
+<Stack spacing="md">
+    <Heading size="lg">Display Large — 48 Inter - B</Heading>
+    <Heading>Display Medium — 30 Inter - B</Heading>
+    <Heading size="sm">Display Small — 22 Inter B</Heading>
+</Stack>
+```
+
+[View component](https://design-system.tradelingdev.com/?path=/story/typography--headings)
+
+### Text usage
+
+- use size prop to change the font size of Text.
+- Sizes can be `xs` , `sm`,`md`, `lg`.
+- The default is `md`
+
+```
+<Stack spacing="md">
+    <Text size="lg">Medium Paragraph — 16 Inter B</Text>
+    <Text>Paragraph — 14 Inter R</Text>
+    <Text fontWeight="bold">Paragraph — 14 Inter B</Text>
+    <Text size="sm">Small Paragraph — 12 Inter R</Text>
+    <Text size="sm" fontWeight="bold">
+      Small Paragraph — 12 Inter B
+    </Text>
+    <Text size="xs" fontWeight="bold">
+      Caption — 10 Inter B
+    </Text>
+    <Text size="xs">Caption — 10 Inter B</Text>
+</Stack>
+```
+
+[View component](https://design-system.tradelingdev.com/?path=/story/typography--texts)

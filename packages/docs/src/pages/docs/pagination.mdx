@@ -1,0 +1,84 @@
+---
+title: Pagination
+description: Pagination Component
+layout: doc-page
+---
+
+# Pagination
+
+pagination is used to indicate a series of related content exists across
+multiple
+pages.[View component](https://design-system.tradelingdev.com/?path=/story/pagination--pagination-hook)
+
+## Import
+
+```
+import { Pagination, MobilePagination } from '@tradeling/web-design-system';
+```
+
+> Make sure that [design system](https://github.com/tradeling/web-design-system)
+> is installed in your application.
+
+`Pagination` and `MobilePagination` take the same prop and have the same
+callbacks, the only difference is the way they displayed.
+
+MobilePagination doesn't have buttons for each page, just next and previous
+buttons.
+[view pagination component](https://design-system.tradelingdev.com/?path=/story/pagination--mobile-pagination),
+[view mobile pagination component](https://design-system.tradelingdev.com/?path=/story/pagination--mobile-pagination)
+
+## Usage
+
+### Basic usage
+
+Pagination requires `total` prop which is the total number of items.
+
+```
+<Pagination total={100} />
+```
+
+### Setting the default page size
+
+Use `defaultPageSize` prop to change number of item will be displayed in each
+page.
+
+```
+<Pagination total={100} defaultPageSize={20} />
+```
+
+### Setting the default page
+
+Use `defaultPage` prop to select the initial active page.
+
+```
+<Pagination total={100} defaultPage={3} />
+```
+
+### Creating a small size pagination
+
+Use `size` prop to set the pagination size with `noOfSiblings` to `1` for
+smaller screen sizes.
+
+```
+<Pagination size="small" total={1248} pageSize={100} noOfSiblings={1} />
+```
+
+### Controlling the pagination
+
+To programmatically control the selected page in pagination, pass the `page` and
+`onPageChange` props to the pagination.
+[view component](https://design-system.tradelingdev.com/?path=/story/pagination--controlled-pagination-component)
+
+## Props
+
+| Name               | Type                           | Default | Description                                                                        | Required |
+| ------------------ | ------------------------------ | ------- | ---------------------------------------------------------------------------------- | :------: |
+| `total`            | `number`                       |         | The total items count                                                              | required |
+| `pageSize`         | `number`                       | 10      | The items per page in controlled mode                                              |    -     |
+| `defaultPageSize`  | `nuber`                        | 10      | The default items per page                                                         |    -     |
+| `onPageSizeChange` | `(nextPageSize: number): void` |         | Callback fired when page changes                                                   |    -     |
+| `noOfSiblings`     | `number`                       | 1       | The number of page buttons to display to the left and right of current page button |    -     |
+| `defaultPage`      | `number`                       | 1       | The initial page in uncontrolled mode                                              |    -     |
+| `page`             | `number`                       | 1       | The current page in controlled mode                                                |    -     |
+| `onPageChange`     | `(nextPage: number): void`     |         | Callback fired when page changes                                                   |    -     |
+| `size`             | `large, small`                 | large   | Variant of the pagination                                                          |    -     |

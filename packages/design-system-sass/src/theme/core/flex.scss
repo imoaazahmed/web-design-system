@@ -1,0 +1,71 @@
+@use "sass:map";
+@import '../abstracts/variables';
+
+$display: inline, block, contents, flex, grid, inline-block, inline-flex,
+  inline-grid, inline-table, list-item, run-in, table, table-caption,
+  table-column-group, table-header-group, table-footer-group, table-row-group,
+  table-cell, table-column, table-row, none, initial, inherit;
+$flex-direction: row, row-reverse, column, column-reverse;
+$flex-wrap: wrap, nowrap, wrap-reverse;
+$justify-content: flex-start, flex-end, center, space-between, space-around,
+  space-evenly, start, end, left, right;
+$align-items: stretch, flex-start, flex-end, center, baseline, 'first baseline',
+  'last baseline', start, end, self-start, self-end;
+$align-content: flex-start, flex-end, center, space-between, space-around,
+  space-evenly, stretch, start, end, baseline, 'first baseline', 'last baseline';
+
+// children
+$align-self: auto, flex-start, flex-end, center, baseline, stretch;
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+$flexStyles: (
+  display: (
+    name: display,
+    value: $display,
+  ),
+  flexDir: (
+    name: flex-direction,
+    value: $flex-direction,
+  ),
+  flexWrap: (
+    name: flex-wrap,
+    value: $flex-wrap,
+  ),
+  justifyContent: (
+    name: justify-content,
+    value: $justify-content,
+  ),
+  alignItems: (
+    name: align-items,
+    value: $align-items,
+  ),
+  alignContent: (
+    name: align-content,
+    value: $align-content,
+  ),
+);
+
+@each $name, $props in $flexStyles {
+  $propName: map.get($props, 'name');
+  $PropVar: map.get($props, 'value');
+
+  @each $value2 in $PropVar {
+    .#{$name}--#{str-replace($value2, '-','')} {
+      #{$propName}: $value2;
+    }
+  }
+}

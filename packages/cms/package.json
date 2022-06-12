@@ -1,0 +1,24 @@
+{
+  "name": "cms",
+  "version": "1.0.0",
+  "description": "CMS components and utils for Tradeling.com",
+  "main": "src/index.ts",
+  "author": "Frontend@Tradeling",
+  "license": "MIT",
+  "scripts": {
+    "test:watch": "NODE_ENV=test jest -o --watch --env=jsdom",
+    "prebuild": "rimraf dist",
+    "build": "yarn build:cjs && yarn build:esm && yarn build:types",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist/types",
+    "build:cjs": "BABEL_ENV=cjs babel src --root-mode upward --out-dir dist/cjs --extensions \".ts,.tsx\" --ignore \"**/*.stories.tsx,**/*.test.ts\" --source-maps inline",
+    "build:esm": "BABEL_ENV=esm babel src --root-mode upward --out-dir dist/esm --extensions \".ts,.tsx\" --ignore \"**/*.stories.tsx,**/*.test.ts\" --source-maps inline"
+  },
+  "dependencies": {
+    "@tradeling/web-design-system": "0.1.0",
+    "@testing-library/react": "12.1.2",
+    "@tradeling/tradeling-sdk": "ssh://git@github.com/tradeling/tradeling-sdk#1.0.182-alpha.205"
+  },
+  "peerDependencies": {
+    "next": "11.1.2"
+  }
+}

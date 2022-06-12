@@ -1,0 +1,107 @@
+---
+title: Button
+description: Button Component
+layout: doc-page
+---
+
+# Button
+
+Button component can be used to render various buttons from the design system.
+[View Component](https://design-system.tradelingdev.com/?path=/story/button--with-variants).
+
+## Installation
+
+Design System can be added as a dependency from
+[here](https://github.com/tradeling/web-design-system-sdk/releases).
+
+## Import
+
+```
+import { Button } from '@tradeling/web-design-system';
+```
+
+## Usage
+
+### Primary Button
+
+```
+<Stack isInline spacing="lg">
+<Button>Primary button</Button>
+<Button variant="primary-next">Primary button</Button>
+</Stack>
+```
+
+### Outline Button
+
+```
+<Button variant="outline">Primary button</Button>
+```
+
+### Danger Button
+
+```
+<Button variant="danger">Danger button</Button>
+```
+
+### Ghost Button
+
+```
+<Button variant="ghost">Ghost button</Button>
+```
+
+### Warning Button
+
+```
+<Button variant="warning">Warning button</Button>
+```
+
+### Link Button
+
+```
+<Button variant="link">Link button</Button>
+```
+
+### Underline Button
+
+```
+<Stack isInline spacing="lg">
+    <Button variant="underline">underline button</Button>
+    <Button variant="underline-secondary">underline button</Button>
+</Stack>
+```
+
+### Secondary Button
+
+```
+    <Button variant="secondary-next">secondary button</Button>
+```
+
+### Default Button
+
+```
+    <Button variant="default">Default button</Button>
+```
+
+## Button Sizes
+
+Use the `size` prop to change the size of the button. You can set the value to
+`sm`, `md` or `lg`.
+
+```
+<Stack spacing="sm" align="flex-start">
+    <Button size="sm" > button (sm) </Button>
+    <Button size="md" > button (md) </Button>
+    <Button size="lg" > button (lg) </Button>
+</Stack>
+```
+
+## Props
+
+It accepts all the props accepted by
+[`<Button />`](https://chakra-ui.com/button) component. Additionally, following
+props can be passed to it:
+
+| Name    |                                                         Type                                                          | Default |    Description     | Required |
+| ------- | :-------------------------------------------------------------------------------------------------------------------: | :-----: | :----------------: | :------: |
+| variant | primary, danger, outline, ghost, warning, link, default, underline, underline-secondary, primary-next, secondary-next | primary |   Button variant   |    -     |
+| size    |                                                      sm, lg, md                                                       |   md    | Size of the button |    -     |

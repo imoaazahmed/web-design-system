@@ -1,0 +1,93 @@
+.fs-3xl {
+  font-size: 3rem;
+}
+
+.fs-2xl {
+  font-size: 1.875rem;
+}
+
+.fs-xl {
+  font-size: 1.375rem;
+}
+
+.fs-lg + {
+  font-size: 1.125rem;
+}
+
+.fs-lg {
+  font-size: 1rem;
+}
+
+.fs-md {
+  font-size: 0.875rem;
+}
+
+.fs-sm {
+  font-size: 0.75rem;
+}
+
+.fs-xs {
+  font-size: 0.625rem;
+}
+
+.fw-regular {
+  font-weight: 400;
+}
+
+.fw-medium {
+  font-weight: 600;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+[class^="text"] {
+  font-family: "Inter, system-ui";
+  letter-spacing: -0.2;
+  line-height: 1.4;
+}
+
+.text-lg {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.text-md {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.75rem;
+}
+
+[class^="heading"] {
+  font-family: "Inter, system-ui";
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.6;
+}
+
+.heading-lg {
+  font-size: 1.875rem;
+}
+
+@media (min-width: 36rem) {
+  .heading-lg {
+    font-size: 3rem;
+  }
+}
+
+.heading-md {
+  font-size: 1.375rem;
+}
+
+@media (min-width: 60em) {
+  .heading-md {
+    font-size: 1.875rem;
+  }
+}
+
+.heading-sm {
+  font-size: 1.375rem;
+}

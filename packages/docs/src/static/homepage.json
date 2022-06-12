@@ -1,0 +1,63 @@
+{
+  "ExploreOurDesignSystem": [
+    {
+      "imageUrl": "https://atlassian.design/static/d01635a2f953438b233504ba5ea32c8b/e3243/homepage-components%402x.png",
+      "title": "Component",
+      "description": "Components are the intuitive building blocks of our design system.",
+      "link": {
+        "text": "Explore our components",
+        "url": "/docs/alert"
+      }
+    },
+    {
+      "imageUrl": "https://repository-images.githubusercontent.com/54173593/39e57000-a3fa-11e9-83c7-953827061607",
+      "title": "Storybook",
+      "description": "development environment for UI components.",
+      "link": {
+        "text": "Explore our storybook",
+        "url": "https://design-system.tradelingdev.com/"
+      }
+    }
+  ],
+  "resources": {
+    "title": "Resources",
+    "description": "A collection of tools, kits, plugins and guides to help simplify the creation process for our users.",
+    "items": [
+      {
+        "icon": {
+          "color": "orange.400",
+          "url": "https://cdn.freebiesupply.com/logos/large/2x/figma-1-logo-black-and-white.png"
+        },
+        "title": "Figma library",
+        "description": "Our Figma libraries contain the latest foundations, components, and patterns for designing and building Atlassian products."
+      },
+      {
+        "icon": {
+          "color": "orange.400",
+          "text": "Aa"
+        },
+        "title": "Fonts",
+        "description": "Our fonts have been chosen to communicate in a way that helps our users achieve their goals.",
+        "link": "https://fonts.google.com/specimen/Inter"
+      },
+      {
+        "icon": {
+          "color": "orange.400",
+          "text": "Lo"
+        },
+        "title": "Logos",
+        "description": "Tradeling's official logos.",
+        "link": "/logos"
+      },
+      {
+        "icon": {
+          "color": "orange.400",
+          "text": "P"
+        },
+        "title": "Presentation kit",
+        "description": "Our complete kit of presentation assets in Powerpoint.",
+        "link": "https://docs.google.com/presentation/d/1cBB_9B3fGAL9nCSq9A3qjqInkule-TGNR2ozohmS5Zw/edit#slide=id.p33"
+      }
+    ]
+  }
+}

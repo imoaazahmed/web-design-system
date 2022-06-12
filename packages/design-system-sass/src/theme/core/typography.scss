@@ -1,0 +1,104 @@
+@import '../abstracts/variables';
+
+@mixin typography(
+  $fontSize: $fontSizes-md,
+  $lineHeight: $lineHeights-default,
+  $letterSpacing: $letterSpacings-default,
+  $fontBold: false
+) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+  @if $fontBold {
+    font-weight: $fontWeights-bold;
+  }
+}
+
+/////////////////////////////////////////////
+// HEADINGS
+/////////////////////////////////////////////
+$headingSizes: (
+  lg: (
+    $fontSizes-xl,
+    $lineHeights-short,
+    $letterSpacings-tighter,
+    true,
+  ),
+  md: (
+    $fontSizes-xl,
+    $lineHeights-short,
+    $letterSpacings-tighter,
+    true,
+  ),
+  sm: (
+    $fontSizes-xl,
+    $lineHeights-short,
+    $letterSpacings-tighter,
+    true,
+  ),
+);
+
+$headingSizesMobile: (
+  lg: (
+    $fontSizes-3xl,
+    $lineHeights-short,
+    $letterSpacings-tighter,
+    true,
+  ),
+  md: (
+    $fontSizes-2xl,
+    $lineHeights-short,
+    $letterSpacings-tighter,
+    true,
+  ),
+);
+
+@each $name, $value in $headingSizes {
+  .heading--#{$name} {
+    @include typography($value...);
+  }
+}
+
+@include mobile {
+  @each $name, $value in $headingSizesMobile {
+    .heading--#{$name} {
+      @include typography($value...);
+    }
+  }
+}
+
+/////////////////////////////////////////////
+// TEXT
+/////////////////////////////////////////////
+$headingSizes: (
+  lg: (
+    $fontSizes-lg,
+    $lineHeights-default,
+    $letterSpacings-default,
+    true,
+  ),
+  md: (
+    $fontSizes-md,
+    $lineHeights-default,
+    $letterSpacings-default,
+    false,
+  ),
+  sm: (
+    $fontSizes-sm,
+    $lineHeights-default,
+    $letterSpacings-default,
+    false,
+  ),
+  xs: (
+    $fontSizes-xs,
+    $lineHeights-short,
+    $letterSpacings-tighter,
+    false,
+  ),
+);
+
+@each $name, $value in $headingSizes {
+  .text--#{$name} {
+    @include typography($value...);
+  }
+}

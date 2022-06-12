@@ -1,0 +1,171 @@
+[class^="button"] {
+  border-radius: 0.375rem;
+  font-weight: bold;
+  color: white;
+  line-height: normal;
+  height: auto;
+}
+[class^="button"]:focus {
+  box-shadow: 0 0 1px 2px #9ab6e8;
+}
+
+.button-primary {
+  background-color: #005f80;
+}
+
+.button-primary:hover {
+  background-color: #00394d;
+}
+
+.button-primary:active {
+  background-color: #005f80;
+}
+
+.button-primary:disabled {
+  background-color: #d9d9d9;
+}
+
+.button-primary-next {
+  background-color: #fb641e;
+}
+
+.button-primary-next:hover {
+  background-color: #e24a04;
+}
+
+.button-primary-next:active {
+  background-color: #b03a03;
+}
+
+.button-primary-next:disabled {
+  background-color: #d9d9d9;
+}
+
+.button-secondary-next {
+  background-color: #00394d;
+}
+
+.button-secondary-next:hover {
+  background-color: #002c3c;
+}
+
+.button-secondary-next:active {
+  background-color: #00202b;
+}
+
+.button-secondary-next:disabled {
+  background-color: #d9d9d9;
+}
+
+.button-danger {
+  background-color: #d83432;
+}
+
+.button-danger:hover {
+  background-color: #bd2624;
+}
+
+.button-danger:active {
+  background-color: #8e1c1b;
+}
+
+.button-danger:disabled {
+  background-color: #d9d9d9;
+}
+
+.button-warning {
+  background-color: #ffb333;
+  color: black;
+}
+
+.button-warning:hover {
+  background-color: #ffa000;
+}
+
+.button-warning:active {
+  background-color: #d58500;
+}
+
+.button-warning:disabled {
+  background-color: #d9d9d9;
+
+  color: white;
+}
+
+.button-outline {
+  background-color: white;
+  color: #00394d;
+  border: 1px solid;
+  border-color: #00394d;
+}
+
+.button-outline:hover {
+  background-color: #f2f2f2;
+}
+
+.button-outline:active {
+  background-color: #d9d9d9;
+}
+
+.button-outline:disabled {
+  background-color: white;
+
+  color: #d9d9d9;
+  border-color: #d9d9d9;
+}
+
+.button-ghost {
+  background-color: transparent;
+  color: #00394d;
+}
+
+.button-ghost:hover {
+  background-color: #f2f2f2;
+}
+
+.button-ghost:active {
+  background-color: #d9d9d9;
+}
+
+.button-ghost:disabled {
+  background-color: transparent;
+
+  color: #d9d9d9;
+}
+
+.button-link {
+  color: #00394d;
+
+  font-weight: bold;
+}
+
+.button-link:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.button-link:active {
+  color: #00394d;
+}
+
+.button-link:disabled {
+  opacity: 0.4;
+}
+
+.button-sm {
+  min-width: undefined;
+  font-size: 0.75rem;
+  padding: undefined;
+}
+
+.button-md {
+  min-width: undefined;
+  font-size: 0.75rem;
+  padding: undefined;
+}
+
+.button-lg {
+  min-width: undefined;
+  font-size: 0.875rem;
+  padding: undefined;
+}

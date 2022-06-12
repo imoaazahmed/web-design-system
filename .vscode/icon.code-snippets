@@ -1,0 +1,22 @@
+{
+  "Add Icon": {
+    "scope": "javascript,typescript,typescriptreact,javascriptreact",
+    "prefix": "ico",
+    "body": [
+      "import React from 'react'",
+      "import { Box, BoxProps } from '@chakra-ui/react'",
+      "",
+      "export function PastryIcon(props: BoxProps) {",
+      "return (",
+      "<chakra.svg size='1em' {...{ viewBox: '$1', ...props }}>",
+      "<path",
+      "d='$2'",
+      "fill='currentColor'",
+      "fillRule='nonzero'",
+      "/> </chakra.svg >",
+      ")",
+      "}"
+    ],
+    "description": "Add an icon from zeplin"
+  }
+}

@@ -1,0 +1,9 @@
+- [ ] Screen Shot
+- [ ] Description of the change
+- [ ] yarn build passed
+- [ ] yarn lint passed
+- [ ] Console ERROR checked
+- [ ] NO Console.log
+- [ ] Additional Libraries used
+- [ ] Jira
+- [ ] Zeplin

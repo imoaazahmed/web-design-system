@@ -1,0 +1,30 @@
+{
+  "name": "@tradeling/css-generator",
+  "version": "0.0.1",
+  "description": "Generates custom tradeling css files",
+  "keywords": [
+    "tradeling",
+    "css",
+    "generator"
+  ],
+  "author": "Tradeling",
+  "homepage": "https://github.com/tradeling/web-design-system#readme",
+  "license": "MIT",
+  "main": "dist/tradeling.css",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tradeling/web-design-system.git"
+  },
+  "scripts": {
+    "build": "ts-node src/index.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/tradeling/web-design-system/issues"
+  },
+  "dependencies": {
+    "@tradeling/web-design-system": "0.1.0"
+  }
+}
